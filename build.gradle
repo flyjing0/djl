@@ -1,8 +1,23 @@
+buildscript {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
 plugins {
     id "com.github.spotbugs" version "4.2.0" apply false
 }
 
 defaultTasks 'build'
+
+
 
 allprojects {
     group 'ai.djl'
@@ -10,7 +25,8 @@ allprojects {
     version = "0.7.0" + (isRelease ? "" : "-SNAPSHOT")
 
     repositories {
-        jcenter()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
     }
 
     apply plugin: 'idea'
